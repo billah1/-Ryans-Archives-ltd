@@ -123,7 +123,7 @@
 
 
                                     <div class="form-group">
-                                        <label for="exampleInputuname">Heading</label>
+                                        <label for="exampleInputuname">Title</label>
                                         <div class="input-group col-md-12">
                                             <span class="input-group-text" id="basic-addon1"></span>
                                             <input type="text" class="form-control" name="title" placeholder="some write" >
@@ -132,27 +132,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="">Full Content</label>
+                                    <label for=""> Content</label>
                                     <div class="input-group col-md-12">
                                         <textarea class="form-control" name="content" aria-hidden="true" style="overflow: hidden; width: 100% !important; max-width: 100%" ></textarea>
                                     </div>
                                 </div>
-
-
-
-
-
-                                    <div class="form-group">
-                                        <label for="pwd2">Image</label>
-                                        <div class="input-group col-md-12">
-                                            <span class="input-group-text" id="basic-addon4"></span>
-                                            <input type="file" name="image"  id="input-file-now" class="dropify" />
-
-                                        </div>
-                                    </div>
-
-
-
 
 
                                 <div class="align-left">

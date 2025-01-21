@@ -30,11 +30,7 @@
 
 
 
-                                    <div class="col-sm-5   ">
-                                        <div>
-                                            <img src="{{asset($detail->image)}}" alt="" style="height: 280px; width: 300px">
-                                        </div>
-                                    </div>
+                                    
 
                                     <div class="col-md-7">
                                         <div class="text-center">

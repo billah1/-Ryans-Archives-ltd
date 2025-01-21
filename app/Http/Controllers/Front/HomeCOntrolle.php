@@ -5,17 +5,18 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Category;
 use App\Models\Admin\Product;
-use App\Models\blog;
+use App\Models\UserBlog;
 use App\Models\User;
+use App\Models\Admin\Blog;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class HomeCOntrolle extends Controller
 {
     public  function Home()
     {
-        return view('Fornt.home.home',[
-            'blogs' => blog::all(),
-            'user' => User::all(),
+        return view('Fornt.home.home', [
+            'blogs' => UserBlog::with('comments.user')->get(),
         ]);
     }
 
@@ -23,11 +24,11 @@ class HomeCOntrolle extends Controller
 
     public function pageOne($slug)
     {
-        $category =  Category::where('slug',$slug)->first();
+        $category =  Category::where('name',$slug)->first();
 
 
-        $products = Product::where('category_id',$category->id)->latest()->get();
-        return view('Fornt.home.page_one', compact('category','products'));
+        $blogs = Blog::where('category_id',$category->id)->latest()->get();
+        return view('Fornt.home.page_one', compact('category','blogs'));
 
 
     }
@@ -35,7 +36,7 @@ class HomeCOntrolle extends Controller
     public  function details($id)
     {
         return view('Fornt.home.details',[
-            'detail' => blog::find($id)
+            'detail' => UserBlog::find($id)
         ]);
     }
 }

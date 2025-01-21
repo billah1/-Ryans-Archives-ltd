@@ -25,53 +25,69 @@
 
                     <main id="main" class="site-main col-xs-12 col-sm-8 left-block">
                         <hr>
-                        @foreach($user as $use)
-                        @foreach($blogs as $blog)
+                        {{-- @foreach ($user as $use) --}}
+                        @foreach ($blogs as $blog)
+                            <div class="sl-item">
+
+
+                                <hr>
+                                {{-- <div class="sl-left"> <img src="{{ asset($use->image) }}" alt="user"
+                                            class="img-circle" /> </div> --}}
+                                <div class="sl-right">
+                                    <div> <a href="javascript:void(0)" class="link">{{ $blog->user->name }}</a> <span
+                                            class="sl-date">5 minutes ago</span>
+
+                                        <div class="m-t-20 row">
+
+                                            <div class="col-md-9 col-xs-12">
+                                                <h3>{{ $blog->title }}</h3>
+                                                <p class=""><span class="claimedRight"
+                                                        maxlength="20"></span>{{ $blog->content }} </p>
+                                                <a href="{{ route('details', ['id' => $blog->id]) }}"
+                                                    class="btn btn-success text-white"> details </a>
+                                            </div>
+                                        </div>
+
+                                            @forelse ($blog->comments as $comment)
+                                            <div class="comment-box">
+                                                <p>
+                                                    <strong>{{ $comment->user ? $comment->user->name : 'Anonymous' }}</strong>:
+                                                    {{ $comment->title }}
+                                                </p>
+                                            </div>
+                                        @empty
+                                            <p>No comments yet.</p>
+                                        @endforelse
+
+
+                                       
 
 
 
 
-                        <div class="sl-item">
-
-
-                            <hr>
-                                              <div class="sl-left"> <img src="{{asset($use->image)}}" alt="user" class="img-circle" /> </div>
-                                              <div class="sl-right">
-                                              <div> <a href="javascript:void(0)" class="link">{{$use->name}}</a> <span class="sl-date">5 minutes ago</span>
 
 
 
 
 
-                                                <div class="m-t-20 row">
+                                        {{-- <input type="text" placeholder="comments" name="comments">
+                                            <button type="submit" class="primary">Send</button> --}}
 
-                                                       <div class="col-md-3 col-xs-12"><img src="{{asset($blog->image)}}" alt="user" class="img-responsive mt-4 " width="150px" height="110px" /></div>
-                                                       <div class="col-md-9 col-xs-12">
-                                                       <h3>{{$blog->title}}</h3>
-                                                       <p class=""><span class="claimedRight" maxlength="20"></span>{{$blog->content}} </p>
-                                                       <a href="{{route('details',['id'=>$blog->id])}}" class="btn btn-success text-white"> details </a></div>
-                                                 </div>
+                                        <form action="{{ route('comments.store') }}" method="POST">
+                                            @csrf
+                                            <div>
+                                                <input type="text" placeholder="Comments" name="title">
+                                            </div>
+                                            <button type="submit" class="primary">Send</button>
+                                            <input type="hidden" name="blog_id" value="{{ $blog->id }}">
+                                        </form>
 
-                                                      <div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>
-
-
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
                         @endforeach
-                        @endforeach
-
-
-
-
+                        {{-- @endforeach --}}
                         <hr>
-
-
-
-
-
-
                     </main>
 
 
@@ -97,7 +113,8 @@
                         <aside class="widget widget_search">
                             <h3>Search bar</h3>
                             <form action="blog.html#" class="search-form" method="get">
-                                <input type="search" title="Search for:" name="s" value="" placeholder="Search …" class="search-field">
+                                <input type="search" title="Search for:" name="s" value=""
+                                    placeholder="Search …" class="search-field">
                                 <input type="submit" value="Search" class="search-submit btn btn-default">
                             </form>
                         </aside>
@@ -117,13 +134,15 @@
                             <ul>
                                 <li class="clearfix"> <img src="images/use_img/widget-thumb.jpg" alt="" />
                                     <div class="simi-co">
-                                        <h5><a href="blog.html#">Can We Talk? A Real Conversation About Employee Performance</a></h5>
+                                        <h5><a href="blog.html#">Can We Talk? A Real Conversation About Employee
+                                                Performance</a></h5>
                                         <p class="meta"><a href="blog.html#">News</a></p>
                                     </div>
                                 </li>
                                 <li class="clearfix"> <img src="images/use_img/widget-thumb.jpg" alt="" />
                                     <div class="simi-co">
-                                        <h5><a href="blog.html#">Create A Professional Music Video For Songwriters/Musicians</a></h5>
+                                        <h5><a href="blog.html#">Create A Professional Music Video For
+                                                Songwriters/Musicians</a></h5>
                                         <p class="meta"><a href="blog.html#">Music</a></p>
                                     </div>
                                 </li>

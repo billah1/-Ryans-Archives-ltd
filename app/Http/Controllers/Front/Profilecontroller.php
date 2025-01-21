@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\blog;
+use App\Models\UserBlog;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Symfony\Component\ErrorHandler\BufferingLogger;
@@ -26,7 +26,7 @@ class Profilecontroller extends Controller
     {
         return view('Fornt.profile.userinfo',[
             'user' => auth()->user(),
-            'blog' => blog::all()
+            'blog' => UserBlog::all()
 
 
         ]);
@@ -37,7 +37,7 @@ class Profilecontroller extends Controller
      */
     public function store(Request $request)
     {
-        blog::addblog($request);
+        UserBlog::addblog($request);
         return redirect()->route('user.profile.create');
     }
 
@@ -62,23 +62,15 @@ class Profilecontroller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    protected  static $imageFile, $imageName, $imageDirectory, $imageUrl ;
+    
     public function update(Request $request,  $id)
     {
 //        return User::all();
-
-        self::$imageFile = $request->file('image');
-        self::$imageName = time().rand(10, 1000).self::$imageFile->getClientOriginalName();
-        self::$imageDirectory = 'assets/img/upload/';
-        self::$imageFile->move(self::$imageDirectory, self::$imageName);
-        self::$imageUrl = self::$imageDirectory.self::$imageName;
-
 
         $user = User::findorFail($id);
         $user->update([
             'phone'=>$request->input('phone'),
             'address'=>$request->input('address'),
-            'image'=> self::$imageUrl,
 
         ]);
         return redirect()->route('user.profile.create');
@@ -89,7 +81,7 @@ class Profilecontroller extends Controller
      */
     public function destroy(string $id)
     {
-        $this->info = blog::find($id);
+        $this->info = UserBlog::find($id);
         {
             unlink($this->info->image);
         }
