@@ -75,15 +75,15 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="">
                                 User <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{route('user.profile.create')}}">profile</a></li>
+                                <li><a href="{{route('user.profile.create')}}">Blog Create</a></li>
                             </ul>
                         </li>
 
 
 
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{route('home')}}">
-                                    Blogs <span class="caret"></span></a>
+{{--                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{route('home')}}">--}}
+{{--                                    Blogs <span class="caret"></span></a>--}}
 
 
 

@@ -24,8 +24,7 @@ use App\Http\Controllers\Front\Profilecontroller;
 Route::get('/' , [HomeCOntrolle::class, 'Home'])->name('home');
 Route::get('/page-one/{slug}' , [HomeCOntrolle::class, 'pageOne'])->name('pageOne');
 Route::get('/page-details/{id}' , [HomeCOntrolle::class, 'details'])->name('details');
-// Route::get('/comment' , [CommentController::class, 'index'])->name('comments.index');
-// Route::store('/comment' , [CommentController::class, 'store'])->name('comments.store');
+
 Route::get('/comment', [CommentController::class, 'index'])->name('comments.index');
 Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
 

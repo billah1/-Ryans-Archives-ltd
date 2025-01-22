@@ -59,17 +59,6 @@
                                             <p>No comments yet.</p>
                                         @endforelse
 
-
-                                       
-
-
-
-
-
-
-
-
-
                                         {{-- <input type="text" placeholder="comments" name="comments">
                                             <button type="submit" class="primary">Send</button> --}}
 
