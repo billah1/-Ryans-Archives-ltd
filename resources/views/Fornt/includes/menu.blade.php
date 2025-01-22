@@ -114,9 +114,9 @@
 
 
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{route('home')}}">
+                            {{-- <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{route('home')}}">
                                 Blogs <span class="caret"></span></a>
-
+ --}}
 
 
 
@@ -142,7 +142,7 @@
 
 
 
-                        <li class="pull-right"><a title="View your cart" href="shopping-cart.html" class="menu-cart"><i class="lnr lnr-cart"></i> <span>0</span></a></li>
+                        {{-- <li class="pull-right"><a title="View your cart" href="shopping-cart.html" class="menu-cart"><i class="lnr lnr-cart"></i> <span>0</span></a></li> --}}
                     </ul>
                 </div>
             </nav>
