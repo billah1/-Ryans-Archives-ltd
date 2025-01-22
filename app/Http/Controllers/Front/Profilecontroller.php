@@ -62,7 +62,7 @@ class Profilecontroller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    
+
     public function update(Request $request,  $id)
     {
 //        return User::all();
@@ -82,9 +82,6 @@ class Profilecontroller extends Controller
     public function destroy(string $id)
     {
         $this->info = UserBlog::find($id);
-        {
-            unlink($this->info->image);
-        }
         $this->info->delete();
         return redirect()->back();
 
